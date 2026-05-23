@@ -2,7 +2,6 @@ from django.db import models
 
 # Create your models here.
 
-
 class Task(models.Model):
     class Status(models.TextChoices):
         NEW = 'NEW', 'Новая'
