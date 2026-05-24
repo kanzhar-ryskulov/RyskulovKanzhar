@@ -15,7 +15,7 @@ class Task(models.Model):
         choices=Status.choices,
         default=Status.NEW,
     )
-    date = models.DateTimeField(auto_now_add=True)
+    date = models.DateField(default="")
 
     class Meta:
         ordering = ['-date']
