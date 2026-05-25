@@ -26,3 +26,16 @@ def add_task(request):
         )
         return HttpResponseRedirect('/')
     return None
+
+def task(request):
+    id = request.GET.get("id")
+
+    if id:
+        try:
+            tasks = Task.objects.get(id=id)
+            context = {'task': tasks}
+            return render(request, 'task.html', context)
+        except Task.DoesNotExist:
+            return HttpResponseRedirect("/")
+
+    return HttpResponseRedirect("/")
