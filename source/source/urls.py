@@ -17,11 +17,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from to_do.views import main_page, add_task, task
+from to_do.views import main_page, add_task, task, detail_task
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', main_page),
     path('task/add/', add_task),
-    path('task/<int:pk>/', task)
+    path('task/<int:pk>/', task, name="task"),
+    path('task/<int:pk>/detail/', detail_task, name="detail_task"),
 ]

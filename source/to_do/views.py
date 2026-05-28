@@ -7,11 +7,11 @@ from to_do.models import Task
 def main_page(request):
     task = Task.objects.all()
     context = {'task': task}
-    return render(request, 'main_page.html', context)
+    return render(request, 'task/main_page.html', context)
 
 def add_task(request):
     if request.method == 'GET':
-        return render(request, 'add_task.html')
+        return render(request, 'task/add_task.html')
     elif request.method == 'POST':
         title = request.POST['title']
         description = request.POST['description']
@@ -30,5 +30,9 @@ def add_task(request):
 def task(request, *args, pk, **kwargs):
     tasks = get_object_or_404(Task, pk=pk)
     context = {'task': tasks}
-    return render(request, 'task.html', context)
+    return render(request, 'task/task.html', context)
 
+def detail_task(request, *args, pk, **kwargs):
+    tasks = get_object_or_404(Task, pk=pk)
+    context = {'task': tasks}
+    return render(request, 'task/detail_description.html', context)
