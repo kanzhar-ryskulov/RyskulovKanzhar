@@ -16,13 +16,13 @@ def add_task(request):
         title = request.POST['title']
         description = request.POST['description']
         status = request.POST['status']
-        date = request.POST['date']
+        detail_description = request.POST['detail_description']
 
         Task.objects.create(
             title=title,
             description=description,
             status=status,
-            date=date,
+            detail_description=detail_description,
         )
         return HttpResponseRedirect('/')
     return None

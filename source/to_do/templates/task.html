@@ -25,6 +25,9 @@
             <div class="navbar-nav">
                 <a class="nav-link active" aria-current="page" href="/">Все задания</a>
             </div>
+            <div>
+                <h1>Детальное описание задачи</h1>
+            </div>
         </div>
     </div>
 </nav>
@@ -35,7 +38,13 @@
         <div class="card-body">
             <figure>
                 <blockquote class="blockquote">
+                    <p>Описание:</p>
                     <p>{{ task.description }}</p>
+                </blockquote>
+                <hr>
+                <blockquote class="blockquote">
+                    <p>Детальное описание:</p>
+                    <p>{{ task.detail_description|linebreaks }}</p>
                 </blockquote>
                 <figcaption class="blockquote-footer mt-3">
                     {{ task.status }}

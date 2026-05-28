@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils import timezone
 
 # Create your models here.
 
@@ -10,12 +11,14 @@ class Task(models.Model):
 
     title = models.CharField(max_length=100)
     description = models.TextField()
+    detail_description = models.TextField()
+    status = models.CharField(max_length=10, choices=Status.choices)
     status = models.CharField(
         max_length=11,
         choices=Status.choices,
         default=Status.NEW,
     )
-    date = models.DateField(default="")
+    date = models.DateField(default=timezone.now)
 
     class Meta:
         ordering = ['-date']
