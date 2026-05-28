@@ -17,7 +17,7 @@
     <p>Основная: {{ t.description }}</p>
     <p>Статус: {{ t.status }}</p>
     <p>Дата: {{ t.date }}</p>
-    <a href="/task/?id={{ t.id }}" class="card-link mt-auto ms-auto">Подробнее</a>
+    <a href="/task/{{ t.id }}/" class="card-link mt-auto ms-auto">Подробнее</a>
     <hr>
     {% endfor %}
 
