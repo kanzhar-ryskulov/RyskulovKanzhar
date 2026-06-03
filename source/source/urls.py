@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from to_do.views import main_page, add_task, task, detail_task
+from to_do.views import main_page, add_task, task, detail_task, update_task
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,4 +25,5 @@ urlpatterns = [
     path('task/add/', add_task),
     path('task/<int:pk>/', task, name="task"),
     path('task/<int:pk>/detail/', detail_task, name="detail_task"),
+    path('task/<int:pk>/edit/', update_task, name="update_task"),
 ]

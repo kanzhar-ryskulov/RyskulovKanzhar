@@ -7,15 +7,15 @@
         {% csrf_token %}
         <div class="mb-3">
             <label class="form-label" for="title">Заголовок задания</label>
-            <input class="form-control" id="title" name="title" placeholder="Заголовок">
+            <input class="form-control" id="title" name="title" value="{{ task.title }}" placeholder="Заголовок">
         </div>
         <div class="mb-3">
             <label class="form-label" for="description">Описание</label>
-            <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            <textarea class="form-control" id="description" name="description"  rows="3">{{ task.description }}</textarea>
         </div>
         <div class="mb-3">
             <label class="form-label" for="detail_description">Детальное описание</label>
-            <textarea class="form-control" id="detail_description" name="detail_description" rows="3"></textarea>
+            <textarea class="form-control" id="detail_description" name="detail_description" rows="3">{{ task.detail_description }}</textarea>
         </div>
         <div class="mb-3">
             <label class="form-label" for="status">Статус</label>
@@ -27,7 +27,7 @@
         </div>
         <div>
             <label class="form-label" for="date">Дата</label>
-            <input class="form-control" id="date" type="date" name="date" placeholder="YYYY-MM-DD">
+            <input class="form-control" id="date" type="date" name="date" value="{{ task.date }}" placeholder="YYYY-MM-DD">
         </div>
 
         <div class="card-footer text-end py-3">
@@ -36,6 +36,7 @@
     </form>
 
 </div>
+
 
 {% endblock %}
 

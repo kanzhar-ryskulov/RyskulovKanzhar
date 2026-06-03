@@ -38,7 +38,22 @@ def add_task(request):
         return HttpResponseRedirect('/')
     return None
 
-def task(request, *args, pk, **kwargs):
+def update_task(request, pk, *args, **kwargs):
+    task = get_object_or_404(Task, pk=pk)
+    if request.method == 'GET':
+        context = {'task': task}
+        return render(request, 'task/update_task.html', context)
+    elif request.method == 'POST':
+        task.title = request.POST['title']
+        task.description = request.POST['description']
+        task.detail_description = request.POST['detail_description']
+        task.status = request.POST['status']
+        task.date = request.POST['date']
+        task.save()
+    return None
+
+
+def task(request, *args, pk, **kwargs)  :
     tasks = get_object_or_404(Task, pk=pk)
     context = {'task': tasks}
     return render(request, 'task/task.html', context)
@@ -47,3 +62,4 @@ def detail_task(request, *args, pk, **kwargs):
     tasks = get_object_or_404(Task, pk=pk)
     context = {'task': tasks}
     return render(request, 'task/detail_description.html', context)
+
