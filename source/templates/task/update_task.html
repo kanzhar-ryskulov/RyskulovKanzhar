@@ -1,42 +1,17 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="container">
-        <h1>Добавление новой задачи</h1>
-    <form id="task_form" action="" method="POST">
-        {% csrf_token %}
-        <div class="mb-3">
-            <label class="form-label" for="title">Заголовок задания</label>
-            <input class="form-control" id="title" name="title" value="{{ task.title }}" placeholder="Заголовок">
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="description">Описание</label>
-            <textarea class="form-control" id="description" name="description"  rows="3">{{ task.description }}</textarea>
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="detail_description">Детальное описание</label>
-            <textarea class="form-control" id="detail_description" name="detail_description" rows="3">{{ task.detail_description }}</textarea>
-        </div>
-        <div class="mb-3">
-            <label class="form-label" for="status">Статус</label>
-            <select name="status" id="status">
-                <option value="NEW">Новая</option>
-                <option value="IN_PROGRESS">В процессе</option>
-                <option value="DONE">Сделано</option>
-            </select>
-        </div>
-        <div>
-            <label class="form-label" for="date">Дата</label>
-            <input class="form-control" id="date" type="date" name="date" value="{{ task.date }}" placeholder="YYYY-MM-DD">
+    <div class="container">
+        <div class="card my-5">
+            <h1>Изменение задачи</h1>
+            <div class="card-body">
+                {% include 'partial/task_form.html' %}
+            </div>
+            <div class="card-footer text-end py-3">
+                <button type="submit" form="task_form" class="btn btn-sm btn-primary">Сохранить</button>
+            </div>
         </div>
 
-        <div class="card-footer text-end py-3">
-            <button type="submit" form="task_form" class="btn btn-sm btn-primary">Сохранить</button>
-        </div>
-    </form>
-
-</div>
-
-
+    </div>
 {% endblock %}
 
