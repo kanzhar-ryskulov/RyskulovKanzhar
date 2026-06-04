@@ -16,7 +16,7 @@
                     </div>
                     <div>
                         <a class="btn btn-warning" href="{% url 'update_task' t.id %}">Update</a>
-                        <a class="btn btn-danger" href="#">Delete</a>
+                        <a class="btn btn-danger" href="{% url 'task_delete' t.id %}">Delete</a>
                     </div>
                 </div>
             </div>
